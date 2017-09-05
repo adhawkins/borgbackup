@@ -2,6 +2,7 @@
 
 . ~/.borgbackup/borg-settings.sh
 
+echo
 echo "Backing up..."
 echo
 
@@ -12,6 +13,7 @@ borg create --remote-path borg1 -v --stats \
 		$EXCLUDE \
 		$DIRECTORIES
 
+echo
 echo "Pruning..."
 echo
 
@@ -22,6 +24,7 @@ echo
 borg prune --remote-path borg1 -v --list $BORG_REPO \
     --keep-hourly=$HOURLY --keep-daily=$DAILY --keep-weekly=$WEEKLY --keep-monthly=$MONTHLY
 
+echo
 echo "Complete - quota..."
 echo
 
