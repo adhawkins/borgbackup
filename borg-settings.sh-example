@@ -1,0 +1,14 @@
+export SSH_ROOT=""
+export BORG_REPO="$SSH_ROOT:{hostname}"
+export BORG_PASSPHRASE=""
+export BORG_REMOTE_PATH=""
+
+export DIRECTORIES="/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin"
+export EXCLUDE="--exclude=\"*/public/logs\""
+export EXCLUDE="$EXCLUDE --exclude=\"*/public/htdocs/stats\""
+export MAILNAME=""
+
+export HOURLY=24
+export DAILY=7
+export WEEKLY=4
+export MONTHLY=12
