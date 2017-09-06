@@ -8,7 +8,7 @@ echo
 
 # Backup all of /home and /var/www except a few
 # excluded directories
-borg create --remote-path borg1 -v --stats \
+borg create --remote-path borg1 -v --stats --exclude-caches \
     $BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
 		$EXCLUDE \
 		$DIRECTORIES
