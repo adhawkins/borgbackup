@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/.borgbackup/borg-settings.sh
+. /root/.borgbackup/borg-settings.sh
 
 if [ -n "$1" -a -n "$2" -a -d "$2" ]
 then
