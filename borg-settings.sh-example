@@ -6,6 +6,7 @@ export BORG_CACHE_DIR="/root/.cache/borg"																															# Direct
 
 export DIRECTORIES="/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin"	# List of directories to back up
 export MAILNAME=""																																										# Who to send the cron job email to
+export MONITOR_THRESHOLD=18000																																				# Age of last backup before warning email sent by borg-monitor.sh
 
 export HOURLY=24																																											# How many hourly backups to retain
 export DAILY=7																																												# How many daily backups to retain
