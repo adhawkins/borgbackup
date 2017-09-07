@@ -6,6 +6,11 @@ echo
 echo "Backing up..."
 echo
 
+if [ -f /root/.borgbackup/excludes ]
+then
+	EXCLUDE="--exclude-from /root/.borgbackup/excludes"
+fi
+
 # Backup all of /home and /var/www except a few
 # excluded directories
 borg create --remote-path borg1 -v --stats --exclude-caches \

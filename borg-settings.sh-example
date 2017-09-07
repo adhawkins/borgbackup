@@ -5,8 +5,6 @@ export BORG_REMOTE_PATH=""																																						# Any path requi
 export BORG_CACHE_DIR="/root/.cache/borg"																															# Directory to use for borg cache files
 
 export DIRECTORIES="/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin"	# List of directories to back up
-export EXCLUDE="--exclude=\"*/public/logs\""																													# Files or directories to exclude
-export EXCLUDE="$EXCLUDE --exclude=\"*/public/htdocs/stats\""
 export MAILNAME=""																																										# Who to send the cron job email to
 
 export HOURLY=24																																											# How many hourly backups to retain
