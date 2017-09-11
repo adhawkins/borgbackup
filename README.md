@@ -12,3 +12,4 @@ Included utilities
 * borg-backup-cron.sh - Cron job to run a borg backup and email the results
 * borg-lists.sh - List the contents of a borg repository or archive
 * borg-mount.sh - Mount a borg archive in a local directory
+* borg-monitor.sh - Cron job to check for failing backups
