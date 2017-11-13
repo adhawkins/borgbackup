@@ -2,4 +2,4 @@
 
 . /root/.borgbackup/borg-settings.sh
 
-borg init $BORG_REPO
+borg init -e repokey $BORG_REPO
