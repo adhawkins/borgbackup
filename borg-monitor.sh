@@ -4,7 +4,7 @@
 
 if borg list $BORG_REPO 2>/dev/null >/dev/null
 then
-	LASTDATE=`borg list $BORG_REPO | tail -1 | awk '{print $1'}`
+	LASTDATE=`borg list $BORG_REPO 2>/dev/null | tail -1 | awk '{print $1'}`
 
 	YEAR=${LASTDATE:0:4}
 	MONTH=${LASTDATE:5:2}
