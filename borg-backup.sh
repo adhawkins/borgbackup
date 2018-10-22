@@ -2,6 +2,9 @@
 
 . /root/.borgbackup/borg-settings.sh
 
+borg --version
+echo
+
 echo
 echo "Backing up..."
 echo
