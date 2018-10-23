@@ -2,5 +2,5 @@
 
 . /root/.borgbackup/borg-settings.sh
 
-borg check -v $BORG_REPO
+/usr/local/sbin/borg check -v $BORG_REPO
 

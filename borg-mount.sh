@@ -4,7 +4,7 @@
 
 if [ -n "$1" -a -n "$2" -a -d "$2" ]
 then
-	borg mount $BORG_REPO::$1 $2
+	/usr/local/sbin/borg mount $BORG_REPO::$1 $2
 	echo "$1 mounted on $2"
 	echo "Use 'umount $2' when finished"
 else

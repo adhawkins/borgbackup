@@ -14,7 +14,7 @@ then
 	EXCLUDE="--exclude-from /root/.borgbackup/excludes"
 fi
 
-borg create -v --stats --exclude-caches \
+/usr/local/sbin/borg create -v --stats --exclude-caches \
 		$EXCLUDE \
     $BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
 		$DIRECTORIES
@@ -23,7 +23,7 @@ echo
 echo "Pruning..."
 echo
 
-borg prune -v --list $BORG_REPO \
+/usr/local/sbin/borg prune -v --list $BORG_REPO \
     --keep-hourly=$HOURLY --keep-daily=$DAILY --keep-weekly=$WEEKLY --keep-monthly=$MONTHLY
 
 echo
