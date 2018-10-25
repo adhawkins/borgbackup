@@ -2,7 +2,7 @@
 
 . /root/.borgbackup/borg-settings.sh
 
-borg --version
+/usr/local/sbin/borg --version
 echo
 
 echo
