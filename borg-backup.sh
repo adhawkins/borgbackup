@@ -30,4 +30,9 @@ echo
 echo "Complete - quota..."
 echo
 
-ssh $SSH_ROOT quota
+if [ -z "$SSH_ROOT" ]
+then
+	echo "No SSH_ROOT, quota unavailable"
+else
+	ssh $SSH_ROOT quota
+fi
