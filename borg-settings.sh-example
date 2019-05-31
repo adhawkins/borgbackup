@@ -4,7 +4,7 @@ export BORG_PASSPHRASE=""																																							# The passphrase
 export BORG_REMOTE_PATH=""																																						# Any path required to run borg on the remote machine
 export BORG_CACHE_DIR="/root/.cache/borg"																															# Directory to use for borg cache files
 
-export DIRECTORIES="/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin"	# List of directories to back up
+export DIRECTORIES=(/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin)	# List of directories to back up
 export MAILNAME=""																																										# Who to send the cron job email to
 export MONITOR_THRESHOLD=18000																																				# Age of last backup before warning email sent by borg-monitor.sh
 

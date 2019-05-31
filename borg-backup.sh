@@ -17,7 +17,7 @@ fi
 /usr/local/sbin/borg create -v --stats --exclude-caches \
 		$EXCLUDE \
     $BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
-		$DIRECTORIES
+		"${DIRECTORIES[@]}" # expand the array, quoting each element
 
 echo
 echo "Pruning..."
