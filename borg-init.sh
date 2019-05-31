@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . /root/.borgbackup/borg-settings.sh
 

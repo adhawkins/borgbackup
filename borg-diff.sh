@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . /root/.borgbackup/borg-settings.sh
 
@@ -8,4 +8,3 @@ then
 else
 	echo "Usage: $0 archive1 archive2"
 fi
-

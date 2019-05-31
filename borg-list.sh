@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . /root/.borgbackup/borg-settings.sh
 
@@ -8,4 +8,3 @@ then
 else
 	/usr/local/sbin/borg list $BORG_REPO::$1
 fi
-

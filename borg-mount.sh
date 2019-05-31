@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . /root/.borgbackup/borg-settings.sh
 
@@ -12,4 +12,3 @@ else
 	echo
 	echo "mountpoint must be a directory"
 fi
-
