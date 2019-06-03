@@ -2,7 +2,6 @@ export SSH_ROOT=""																																										# The SSH account to
 export BORG_REPO="$SSH_ROOT:{hostname}"																																# The borg repository (by default, use the hostname of the local machine)
 export BORG_PASSPHRASE=""																																							# The passphrase on the board repository
 export BORG_REMOTE_PATH=""																																						# Any path required to run borg on the remote machine
-export BORG_CACHE_DIR="/root/.cache/borg"																															# Directory to use for borg cache files
 
 export DIRECTORIES=(/srv /var/backups/mysql /etc /root /var/lib/dpkg /usr/local/bin /usr/local/sbin)	# List of directories to back up
 export MAILNAME=""																																										# Who to send the cron job email to
