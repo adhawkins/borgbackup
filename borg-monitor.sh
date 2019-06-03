@@ -2,6 +2,9 @@
 
 . /root/.borgbackup/borg-settings.sh
 
+DIR="$(dirname "$(test -L "$0" && readlink -f "$0" || echo "$0")")"
+. ${DIR}/borg-complete-settings.sh
+
 if /usr/local/sbin/borg list $BORG_REPO 2>/dev/null >/dev/null
 then
 	LASTDATE=`/usr/local/sbin/borg list $BORG_REPO 2>/dev/null | tail -1 | awk '{print $1'}`
@@ -25,4 +28,3 @@ then
 else
 	echo "Error retrieving borg backups on `hostname`" | Mail -s "*** Backup warning for `hostname` ***" $MAILNAME
 fi
-

@@ -2,6 +2,9 @@
 
 . /root/.borgbackup/borg-settings.sh
 
+DIR="$(dirname "$(test -L "$0" && readlink -f "$0" || echo "$0")")"
+. ${DIR}/borg-complete-settings.sh
+
 /usr/local/sbin/borg --version
 echo
 
@@ -30,9 +33,9 @@ echo
 echo "Complete - quota..."
 echo
 
-if [ -z "$SSH_ROOT" ]
+if [ -n "${BORGBASE_REPO_ID}" ]
 then
-	echo "No SSH_ROOT, quota unavailable"
+	echo "Using borgbase, quota currently unavailable"
 else
 	ssh $SSH_ROOT quota
 fi

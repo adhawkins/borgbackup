@@ -1,3 +1,5 @@
+export BORGBASE_REPO_ID=""																																						# The borgbase repo ID
+
 export SSH_ROOT=""																																										# The SSH account to use
 export BORG_REPO="$SSH_ROOT:{hostname}"																																# The borg repository (by default, use the hostname of the local machine)
 export BORG_PASSPHRASE=""																																							# The passphrase on the board repository
