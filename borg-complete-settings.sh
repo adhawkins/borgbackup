@@ -19,8 +19,8 @@ retry()
 				success=0
 				break
 			else
+				echo "Failed - $0, $tries attempt(s)"
 				tries=$((tries+1))
-				echo "Failed - $tries attempt(s)"
 
 				if [ "$tries" -lt "$retries" ]
 				then
