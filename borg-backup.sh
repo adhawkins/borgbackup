@@ -17,7 +17,7 @@ then
 	EXCLUDE="--exclude-from /root/.borgbackup/excludes"
 fi
 
-if ! retry 5 5 /usr/local/sbin/borg create -v --stats --exclude-caches \
+if ! retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
 		$EXCLUDE \
     $BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
 		"${DIRECTORIES[@]}" # expand the array, quoting each element
@@ -29,7 +29,7 @@ echo
 echo "Pruning..."
 echo
 
-if ! retry 5 5 /usr/local/sbin/borg prune -v --list $BORG_REPO \
+if ! retry 5 5 /usr/local/sbin/borg prune -v --show-rc --list $BORG_REPO \
     --keep-hourly=$HOURLY --keep-daily=$DAILY --keep-weekly=$WEEKLY --keep-monthly=$MONTHLY
 then
 	echo "Prune failed"
