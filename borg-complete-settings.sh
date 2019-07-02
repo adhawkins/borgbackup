@@ -21,8 +21,8 @@ retry()
 
 			if [ "$ret" -ge "2" ]
 			then
-				echo "Failed - $ret, $tries attempt(s)"
 				tries=$((tries+1))
+				echo "Failed - $ret, $tries attempt(s)"
 
 				if [ "$tries" -lt "$retries" ]
 				then
