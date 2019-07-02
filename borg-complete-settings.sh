@@ -14,18 +14,23 @@ retry()
 
 		while [ "$tries" -lt "$retries" ]
 		do
-			if $command "$@"
+			$command "$@"
+
+			ret=$?
+			echo "$command returns $ret"
+
+			if [ "$ret" -ge "2" ]
 			then
-				success=0
-				break
-			else
-				echo "Failed - $0, $tries attempt(s)"
+				echo "Failed - $ret, $tries attempt(s)"
 				tries=$((tries+1))
 
 				if [ "$tries" -lt "$retries" ]
 				then
 					sleep $delay
 				fi
+			else
+				success=0
+				break
 			fi
 
 		done
