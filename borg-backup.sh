@@ -8,7 +8,7 @@ DIR="$(dirname "$(test -L "$0" && readlink -f "$0" || echo "$0")")"
 /usr/local/sbin/borg --version
 echo
 
-if which apt-mark
+if which apt-mark 2>/dev/null
 then
 	echo
 	echo "Exporting manual package list"
@@ -17,7 +17,7 @@ then
 	apt-mark showmanual > ~/apt-mark-show-manual.txt
 fi
 
-if which dpkg
+if which dpkg 2>/dev/null
 then
 	echo
 	echo "Exporting dpkg package list"
