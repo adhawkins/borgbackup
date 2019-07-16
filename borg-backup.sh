@@ -8,6 +8,24 @@ DIR="$(dirname "$(test -L "$0" && readlink -f "$0" || echo "$0")")"
 /usr/local/sbin/borg --version
 echo
 
+if which apt-mark
+then
+	echo
+	echo "Exporting manual package list"
+	echo
+
+	apt-mark showmanual > ~/apt-mark-show-manual.txt
+fi
+
+if which dpkg
+then
+	echo
+	echo "Exporting dpkg package list"
+	echo
+
+	dpkg --get-selections > ~/dpkg-get-selections.txt
+fi
+
 echo
 echo "Backing up..."
 echo
