@@ -36,6 +36,7 @@ then
 fi
 
 if ! retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
+		--remote-ratelimit $RATELIMIT \
 		$EXCLUDE \
     $BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
 		"${DIRECTORIES[@]}" # expand the array, quoting each element

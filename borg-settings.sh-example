@@ -13,3 +13,5 @@ export HOURLY=24																																											# How many hourly bac
 export DAILY=7																																												# How many daily backups to retain
 export WEEKLY=4																																												# How many weekly backups to retain
 export MONTHLY=12																																											# How many monthly backups to retain
+
+export RATELIMIT=0																																											# Upload rate limit in kBytes/sec
