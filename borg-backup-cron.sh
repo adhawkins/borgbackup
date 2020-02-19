@@ -1,7 +1,6 @@
 #!/bin/bash
 
 SLEEP=$(( RANDOM % 900 ))
-echo "Sleeping  for $SLEEP seconds"
 sleep $SLEEP
 
 . /root/.borgbackup/borg-settings.sh
