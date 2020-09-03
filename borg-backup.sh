@@ -8,6 +8,15 @@ DIR="$(dirname "$(test -L "$0" && readlink -f "$0" || echo "$0")")"
 /usr/local/sbin/borg --version
 echo
 
+if which xe > /dev/null 2>/dev/null
+then
+	echo
+	echo "Exporting XCP metadata"
+	echo
+
+	rm -f /root/pool-database.bak; xe pool-dump-database file-name=/root/pool-database.bak
+fi
+
 if which apt-mark >/dev/null 2>/dev/null
 then
 	echo
