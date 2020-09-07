@@ -73,29 +73,3 @@ then
 else
 	ssh $SSH_ROOT quota
 fi
-
-STAMPFILE="${HOME}/borg-check.timestamp"
-
-if [ -e "$STAMPFILE" ]
-then
-		if [ $(find "$STAMPFILE" -mtime +10) ]
-		then
-				echo
-				echo "Checking"
-				echo
-				${DIR}/borg-check.sh
-				if [ $? = 0 ]
-				then
-						echo "Repository check successful"
-						touch "$STAMPFILE"
-				else
-						echo "*** Repository check failed ***"
-				fi
-		fi
-else
-		touch -d @"$(echo "$(date +%s) - $(shuf -i1-10 -n1) * 86400" | bc)" "$STAMPFILE"
-
-		echo
-		echo "Check stamp initialized"
-		echo
-fi
