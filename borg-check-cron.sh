@@ -10,7 +10,7 @@ STAMPFILE="${HOME}/borg-check.timestamp"
 OUTPUT=$(
 if [ -e "$STAMPFILE" ]
 then
-	if [ $(find "$STAMPFILE" -mtime +10 2>/dev/null) ]
+	if [ $(find "$STAMPFILE" -daystart -mtime +10 2>/dev/null) ]
 	then
 		echo
 		echo "Checking"
