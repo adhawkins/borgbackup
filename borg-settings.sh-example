@@ -14,4 +14,7 @@ export DAILY=7																																												# How many daily backu
 export WEEKLY=4																																												# How many weekly backups to retain
 export MONTHLY=12																																											# How many monthly backups to retain
 
-export RATELIMIT=0																																											# Upload rate limit in kBytes/sec
+export RATELIMIT=0																																										# Upload rate limit in kBytes/sec
+
+export HEALTHCHECKS_BASEURL="https://hc-ping.com"																											# Base URL for healthchecks 'pings'
+export HEALTHCHECKS_ID="d15bf895-403d-4dca-8a19-024f02df2fdf"																					# ID of healthcheck to ping
