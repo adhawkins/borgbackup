@@ -46,7 +46,7 @@ fi
 
 if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
 then
-	curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/start"
+	curl -s "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/start" >/dev/null
 fi
 
 if retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
@@ -57,12 +57,12 @@ if retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
 then
 	if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
 	then
-		curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID"
+		curl -s "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID" > /dev/null
 	fi
 else
 	if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
 	then
-		curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/fail"
+		curl -s "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/fail" > /dev/null
 	fi
 
 	echo "Backup failed"
