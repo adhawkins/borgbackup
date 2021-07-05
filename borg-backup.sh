@@ -44,12 +44,27 @@ then
 	EXCLUDE="--exclude-from /root/.borgbackup/excludes"
 fi
 
-if ! retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
+if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
+then
+	curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/start"
+fi
+
+if retry 5 5 /usr/local/sbin/borg create -v --show-rc --stats --exclude-caches \
 		--remote-ratelimit $RATELIMIT \
 		$EXCLUDE \
 		$BORG_REPO::'{now:%Y-%m-%d-%H-%M-%S}' \
 		"${DIRECTORIES[@]}" # expand the array, quoting each element
 then
+	if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
+	then
+		curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID"
+	fi
+else
+	if [ -n "$HEALTHCHECKS_BASEURL" -a -n "$HEALTHCHECKS_ID" ]
+	then
+		curl "$HEALTHCHECKS_BASEURL/$HEALTHCHECKS_ID/fail"
+	fi
+
 	echo "Backup failed"
 fi
 
