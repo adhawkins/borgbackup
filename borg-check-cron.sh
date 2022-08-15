@@ -40,5 +40,5 @@ fi
 
 if [ -n "$OUTPUT" ]
 then
-	echo "$OUTPUT" | Mail -s "$(hostname -s) Borg check report" "$MAILNAME"
+	echo "$OUTPUT" | Mail -r "root@$(hostname -f)" -s "$(hostname -s) Borg check report" "$MAILNAME"
 fi

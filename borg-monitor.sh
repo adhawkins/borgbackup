@@ -23,8 +23,8 @@ then
 
 	if [ $DIFF -gt $MONITOR_THRESHOLD ]
 	then
-		echo "Last backup on `hostname` was at $YEAR-$MONTH-$DAY $HOUR:$MIN:$SEC" | Mail -s "*** Backup warning for `hostname` ***" $MAILNAME
+		echo "Last backup on `hostname` was at $YEAR-$MONTH-$DAY $HOUR:$MIN:$SEC" | Mail -r "root@$(hostname -f)" -s "*** Backup warning for `hostname` ***" $MAILNAME
 	fi
 else
-	echo "Error retrieving borg backups on `hostname`" | Mail -s "*** Backup warning for `hostname` ***" $MAILNAME
+	echo "Error retrieving borg backups on `hostname`" | Mail -r "root@$(hostname -f)" -s "*** Backup warning for `hostname` ***" $MAILNAME
 fi
