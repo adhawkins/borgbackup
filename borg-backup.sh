@@ -79,6 +79,15 @@ then
 fi
 
 echo
+echo "Compacting..."
+echo
+
+if ! retry 5 5 /usr/local/sbin/borg compact --threshold 1 -v --show-rc $BORG_REPO
+then
+	echo "Compact failed"
+fi
+
+echo
 echo "Complete - quota..."
 echo
 
